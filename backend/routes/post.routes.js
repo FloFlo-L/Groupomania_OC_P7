@@ -8,11 +8,8 @@ router.post('/', postCtrl.createPost);
 router.put('/:id', postCtrl.updatePost);
 router.delete('/:id', postCtrl.deletePost); 
 
+router.post('/:id/like', postCtrl.likePost);
 
-
-
-// router.post('/:id/like', postCtrl.likeSauce);
-// router.get('/:id', postCtrl.getOneSauce);
 
 
 module.exports = router;

@@ -7,8 +7,6 @@ exports.signup = async (req, res) => {
     bcrypt.hash(req.body.password, 10)//crypté le mdp
         .then(hash => {
             const user = new UserModel({//create new user
-                nom: req.body.nom,
-                prenom: req.body.prenom,
                 email: req.body.email,
                 password: hash//mdp crypté
             });
@@ -59,18 +57,4 @@ exports.userInfo = async (req, res)=>{
         .then(user => res.status(200).json(user))
         .catch(error => res.status(404).json({ error }));
         console.log('Utilisateur trouvé')
-}
-
-exports.updateUser = async (req, res) => {
-    UserModel.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-    .then(() => res.status(200).json({ message: 'User modifié !'}))
-    .catch(error => res.status(400).json({ error }));
-    console.log('Utilisateur modifié')
-}
-
-exports.deleteUser = async (req, res) =>{
-    UserModel.deleteOne({_id: req.params.id})
-    .then(() => res.status(200).json({ message: 'User supprimé !'}))
-    .catch(error => res.status(400).json({ error }));
-    console.log('Utilisateur supprimé')
 }
