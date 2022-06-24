@@ -7,8 +7,7 @@ router.post('/register', userCtrl.signup)
 router.post('/login', userCtrl.login)
 // router.post('/logout', userCtrl.logout)
 
-//user Action
 router.get('/', userCtrl.getAllUsers)
-router.get('/:id', userCtrl.userInfo)
+router.get('/:id', userCtrl.getOneUser)
 
 module.exports = router;

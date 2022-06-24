@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
-exports.signup = async (req, res) => {
+exports.signup = (req, res) => {
     bcrypt.hash(req.body.password, 10)//crypté le mdp
         .then(hash => {
             const user = new UserModel({//create new user
@@ -44,6 +44,8 @@ exports.login = async (req, res) => {
     .catch(error => res.status(500).json({ error }));
 }
 
+//logout
+
 exports.getAllUsers = async (req, res) =>{
     UserModel.find().select('-passeword')
     .then(users => res.status(200).json(users))
@@ -51,7 +53,7 @@ exports.getAllUsers = async (req, res) =>{
     console.log('Liste utilisateurs')
 }
 
-exports.userInfo = async (req, res)=>{
+exports.getOneUser = async (req, res)=>{
     console.log(req.params)
     UserModel.findOne({ _id: req.params.id })
         .then(user => res.status(200).json(user))
