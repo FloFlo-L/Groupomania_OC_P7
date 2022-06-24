@@ -3,16 +3,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
-exports.signup = (req, res) => {
+exports.signup = async (req, res) => {
     bcrypt.hash(req.body.password, 10)//crypté le mdp
         .then(hash => {
             const user = new UserModel({//create new user
                 email: req.body.email,
                 password: hash//mdp crypté
             });
-            console.log(user)
             user.save()//enregistré user dans base de données
-                .then(() => res.status(201).json({ message: 'Utilisateur créé !', user: user._id }))
+                .then(() => res.status(201).json({ message: 'Utilisateur créé !'}))
                 .catch(error => res.status(400).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
