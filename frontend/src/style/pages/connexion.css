@@ -1,0 +1,42 @@
+.connexion-page{
+    margin: 80px auto 0;
+    max-width: 1200px;
+    color: #4E5166
+}
+
+.connexion-container{
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.card{
+    border: none;
+    background: #FFD7D7;
+    min-width: 490px;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.form-container{
+    display: flex;
+    justify-content: space-around
+}
+
+.active-btn{
+    border-bottom: 2px solid #FD2D01 ;
+    font-weight: 500;
+}
+
+.img-container {
+    display: grid;
+    align-items: center;
+    height: 100%;
+}
+
+img{
+    height: 450px;
+}
