@@ -1,38 +1,76 @@
 .connexion-page {
-    margin: 80px 60px;
-    color: #4e5166;
-  }
-  
-  .connexion-container {
-    display: grid;
-    grid-template-columns: 60% 40%;
-  }
-  
-  .card {
-    border: none;
-    background: #ffd7d7;
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 20px;
-  }
-  
-  .form-container {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .active-btn {
-    border-bottom: 2px solid #fd2d01;
-    font-weight: 500;
-  }
-  
-  .img-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  img {
-    width: 100%;
-  }
+  margin: 80px 60px;
+  color: #4e5166;
+}
+
+.connexion-container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.card {
+  border: none;
+  background: #ffd7d7;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.active-btn {
+  border-bottom: 2px solid #fd2d01;
+  font-weight: 500;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+}
+
+/*input + label*/
+.input-field label {
+  color: #000;
+}
+.input-field input:focus + label {
+  color: #4e5166 !important;
+}
+.input-field input:focus {
+  border-bottom: 1px solid #fd2d01 !important;
+  box-shadow: 0 1px 0 0 #fd2d01 !important;
+}
+
+.active {
+  max-width: 100%;
+}
+
+/* bouton connexion/inscription */
+.btn {
+  background-color: #fd2d01 !important;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  background-color: #fd2d01;
+  opacity: 0.8;
+}
+
+/*erreurs*/
+.error-nom,
+.error-prenom,
+.error-email,
+.error-password,
+.error {
+  color: red;
+  font-weight: 600;
+  font-size: smaller;
+}

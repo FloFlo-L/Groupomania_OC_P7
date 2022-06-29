@@ -5,15 +5,16 @@ export default function SignIn() {
   const [password, setPassword] = useState('');
 
   function login(e) {
+    e.preventDefault();
+    const error = document.querySelector('.error');
   }
 
-
   return (
-    <div className="row">
+    <div>
       <br />
 
-      <form action="" onSubmit={login} id="signup" className="col s12">
-        <div className="input-field active">
+      <form action="" onSubmit={login} id="signup" className="">
+        <div className="input-field">
           <input
             type="email"
             id="email"
@@ -34,7 +35,7 @@ export default function SignIn() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <label htmlFor="password" className="">Mot de passe</label>
+          <label htmlFor="password">Mot de passe</label>
         </div>
 
         <br />
