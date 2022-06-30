@@ -6,7 +6,7 @@ export default function SignIn() {
 
   function login(e) {
     e.preventDefault();
-    const error = document.querySelector('.error');
+    // const error = document.querySelector('.error');
   }
 
   return (
