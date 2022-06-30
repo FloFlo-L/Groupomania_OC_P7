@@ -8,8 +8,8 @@ export default function Connexion() {
     <div className='connexion-page'>
       <div className='connexion-container'>
         <Log />
-        <div className='img-container'>
-          <img src={logo} alt='icon-logo' className='logo-img '/>
+        <div className='imgContainer'>
+          <img src={logo} alt='icon-logo' className='logoImg '/>
         </div>
       </div> 
     </div>
