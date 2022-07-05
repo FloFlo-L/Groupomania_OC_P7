@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import SignUp from './signUp'
-import SignIn from './signIn'
+import SignUp from './SignUp'
+import SignIn from './SignIn'
 
 export default function Log() {
 const [signUp, setSignUp]= useState(false)

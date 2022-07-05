@@ -6,14 +6,38 @@ export default function SignIn() {
 
   function login(e) {
     e.preventDefault();
-    // const error = document.querySelector('.error');
+    const error = document.querySelector('.error');
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    };
+
+    fetch('http://localhost:5000/api/user/login', requestOptions)
+      .then((response) => response.json())
+      .then((response2) => {
+        console.log(response2);
+        if (response2.error === undefined) {
+          console.log('mdp et email ok !');
+          error.innerHTML = '';
+          window.location='/'
+        } else {
+          error.innerHTML = response2.error;
+        }
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
     <div>
       <br />
 
-      <form action="" onSubmit={login} id="signup" className="">
+      <form action="" onSubmit={login} id="signup">
         <div className="input-field">
           <input
             type="email"
@@ -42,7 +66,8 @@ export default function SignIn() {
         <br />
 
         <input type="submit" value="Se connecter" className="btn btn-signin" />
-        <br /><br />
+        <br />
+        <br />
         <div className="error"></div>
       </form>
     </div>

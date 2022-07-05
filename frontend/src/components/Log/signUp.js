@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import SignIn from './signIn';
+import SignIn from './SignIn';
 
 export default function SignUp() {
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [formSubmit, setFormSubmit] = useState(false);
 
   function nomErrorInput(input, error) {
     if (input.length === 0) {
@@ -49,76 +50,108 @@ export default function SignUp() {
     emailErrorInput(email, errorEmail);
     passwordErrorInput(password, errorPassword);
 
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nom: nom,
+        prenom: prenom,
+        email: email,
+        password: password,
+      }),
+    };
+
+    fetch('http://localhost:5000/api/user/register', requestOptions)
+      .then((response) => response.json())
+      .then((response2) => {
+        console.log(response2.message);
+        if (response2.message === 'Vous êtes inscrit !') {
+          setFormSubmit(true);
+          console.log('inscrit !');
+        } else {
+          error.innerHTML = response2.message;
+        }
+      });
   }
 
   return (
-  
-    <div>
-    <br />
+    <>
+      {formSubmit ? (
+        <>
+          <SignIn />
+          <div className="message-inscription">
+            Vous êtes bien inscrit ! Vous pouvez vous connecter
+          </div>
+        </>
+      ) : (
+        <div>
+          <br />
 
-    <form action="" onSubmit={login} id="signup">
-      <div className="row">
-        <div className="input-field col s6">
-          <input
-            type="text"
-            id="nom"
-            name="nom"
-            onChange={(e) => setNom(e.target.value)}
-            value={nom}
-          />
-          <label htmlFor="nom">Nom</label>
-          <div className="error-nom"></div>
+          <form action="" onSubmit={login} id="signup">
+            <div className="row">
+              <div className="input-field col s6">
+                <input
+                  type="text"
+                  id="nom"
+                  name="nom"
+                  onChange={(e) => setNom(e.target.value)}
+                  value={nom}
+                />
+                <label htmlFor="nom">Nom</label>
+                <div className="error-nom"></div>
+              </div>
+              <div className="input-field col s6">
+                <input
+                  type="text"
+                  id="prenom"
+                  name="prenom"
+                  onChange={(e) => setPrenom(e.target.value)}
+                  value={prenom}
+                />
+                <label htmlFor="prenom">Prénom</label>
+                <div className="error-prenom"></div>
+              </div>
+            </div>
+
+            <div className="input-field">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+              <label htmlFor="email">Email</label>
+              <div className="error-email"></div>
+            </div>
+
+            <br />
+
+            <div className="input-field">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+              <label htmlFor="password">Mot de passe</label>
+              <div className="error-password"></div>
+            </div>
+
+            <br />
+
+            <input
+              type="submit"
+              value="S'inscrire"
+              className="btn btnConnexion"
+            />
+            <br />
+            <br />
+            <div className="error"></div>
+          </form>
         </div>
-        <div className="input-field col s6">
-          <input
-            type="text"
-            id="prenom"
-            name="prenom"
-            onChange={(e) => setPrenom(e.target.value)}
-            value={prenom}
-          />
-          <label htmlFor="prenom">Prénom</label>
-          <div className="error-prenom"></div>
-        </div>
-      </div>
-
-      <div className="input-field">
-        <input
-          type="email"
-          id="email"
-          name="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <label htmlFor="email">Email</label>
-        <div className="error-email"></div>
-      </div>
-
-      <br />
-
-      <div className="input-field">
-        <input
-          type="password"
-          id="password"
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <label htmlFor="password">Mot de passe</label>
-        <div className="error-password"></div>
-      </div>
-
-      <br />
-
-      <input
-        type="submit"
-        value="S'inscrire"
-        className="btn btn-signin"
-      />
-      <br />
-      <br />
-      <div className="error"></div>
-    </form>
-    </div>
+      )}
+    </>
   );
 }
