@@ -1,0 +1,103 @@
+/***NAV BAR***/
+nav {
+    background-color: #4e5166;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100%;
+  }
+  .imgLogo {
+    width: 100%;
+    display: flex;
+  }
+  .containerWelcome {
+    display: flex;
+    justify-content: flex-end;
+    color: #ffd7d7;
+  }
+  .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 25px;
+  }
+  h5 {
+    margin: 0px;
+  }
+  .NavLink {
+    color: #fd2d01;
+    margin-right: 20px;
+  }
+  .NavIconBtn {
+    padding: 0px;
+    color: #ffd7d7;
+    display: flex;
+    align-items: center;
+  }
+  /***Icon Nav Bar***/
+  .iconLog {
+    display: none;
+  }
+  /***btn Connexion Nav Bar***/
+  .btnLogNavBar {
+    background-color: #ffd7d7;
+    color: #fd2d01;
+    border-radius: 20px;
+  }
+  .btnLogNavBar:hover {
+    background-color: #fd2d01;
+    color: #ffd7d7;
+  }
+  .smallBtnLogNavBar {
+    background-color: #ffd7d7;
+    color: #fd2d01;
+    border-radius: 20px;
+    display: none;
+  }
+  .smallBtnLogNavBar:hover {
+    background-color: #fd2d01;
+    color: #ffd7d7;
+  }
+  
+  .containerImgLog {
+    display: flex;
+  }
+  @media only screen and (max-width: 850px) {
+    nav {
+      grid-template-columns: 30% 70%;
+      margin-bottom: 30px;
+    }
+    .welcome {
+      margin-right: 15px;
+    }
+    .NavLink {
+      margin-right: 10px;
+    }
+    h5 {
+      font-size: large;
+    }
+    .btnLogNavBar {
+      display: none;
+    }
+    .smallBtnLogNavBar{
+      display: block;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    nav {
+      grid-template-columns: 30% 70%;
+      margin-bottom: 10px;
+    }
+    .NavLink {
+      margin-right: 0px;
+    }
+    h5 {
+      font-size: larger;
+    }
+    .smallBtnLogNavBar{
+      display: none;
+    }
+    .iconLog {
+      display: block;
+    }
+  }

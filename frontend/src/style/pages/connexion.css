@@ -1,15 +1,15 @@
 /*****CONNEXION******/
-.connexion-page {
+.connexionPage {
   margin: 0px 0px;
   color: #4e5166;
 }
 
-.connexion-container {
+.connexionContainer {
   display: grid;
   grid-template-columns: 60% 40%;
 }
 
-.card {
+.containerConnexion {
   border: none;
   background: #ffd7d7;
   width: 85%;
@@ -19,12 +19,13 @@
   border-radius: 20px;
 }
 
-.form-container {
+.formContainer {
   display: flex;
   justify-content: space-around;
+  cursor: pointer;
 }
 
-.active-btn {
+.activeBtn {
   border-bottom: 2px solid #fd2d01;
   font-weight: 500;
 }
@@ -51,17 +52,13 @@
   box-shadow: 0 1px 0 0 #fd2d01 !important;
 }
 
-.active {
-  max-width: 100%;
-}
-
 /* bouton connexion/inscription */
-.btn {
+.btnConnexion {
   background-color: #fd2d01 !important;
   border-radius: 20px;
 }
 
-.btn:hover {
+.btnConnexion:hover {
   background-color: #fd2d01;
   opacity: 0.8;
 }
@@ -85,15 +82,15 @@
 
 /*responsive tablette*/
 @media only screen and (max-width: 850px) {
-  .connexion-page {
+  .connexionPage {
     margin: 0px 0px;
   }
-  .connexion-container {
+  .connexionContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .card {
+  .containerConnexion {
     width: 80%;
   }
   .imgContainer {
@@ -102,14 +99,14 @@
 }
 /*responsive mobile*/
 @media only screen and (max-width: 600px) {
-  .connexion-page {
+  .connexionPage {
     margin: 0px 0px;
   }
-  .connexion-container {
+  .connexionContainer {
     display: flex;
     flex-direction: column-reverse;
   }
-  .card {
+  .containerConnexion {
     width: 90%;
   }
   .imgContainer {

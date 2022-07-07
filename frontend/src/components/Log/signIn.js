@@ -25,6 +25,8 @@ export default function SignIn() {
         if (response2.error === undefined) {
           console.log('mdp et email ok !');
           error.innerHTML = '';
+          console.log(response2)
+          window.localStorage.setItem('token', response2.token)
           window.location='/'
         } else {
           error.innerHTML = response2.error;
@@ -65,7 +67,7 @@ export default function SignIn() {
         <br />
         <br />
 
-        <input type="submit" value="Se connecter" className="btn btn-signin" />
+        <input type="submit" value="Se connecter" className="btn btnConnexion" />
         <br />
         <br />
         <div className="error"></div>

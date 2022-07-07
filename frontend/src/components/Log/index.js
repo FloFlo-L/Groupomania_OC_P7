@@ -1,42 +1,41 @@
-import React, { useState } from 'react'
-import SignUp from './SignUp'
-import SignIn from './SignIn'
+import React, { useState } from 'react';
+import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 export default function Log() {
-const [signUp, setSignUp]= useState(false)
-const [signIn, setSignIn]= useState(true)
+  const [signUp, setSignUp] = useState(false);
+  const [signIn, setSignIn] = useState(true);
 
-function clickBtnConnexion(e) {
-    if (e.target.id === "login") {
-        setSignUp(false)
-        setSignIn(true)
+  function clickBtnConnexion(e) {
+    if (e.target.id === 'register') {
+      setSignIn(false);
+      setSignUp(true);
+    } else if (e.target.id === 'login') {
+      setSignUp(false);
+      setSignIn(true);
     }
-    if (e.target.id === "register") {
-        setSignUp(true)
-        setSignIn(false)
-    }
-}
+  }
 
   return (
-    <div className='card'>
-            <ul className='form-container'>
-                <li onClick={clickBtnConnexion}
-                    id="login"
-                    className={signIn ? "active-btn" : null}
-                >
-                    Se connecter
-                </li>
-                <li onClick={clickBtnConnexion}
-                    id="register"
-                    className={signUp ? "active-btn" : null}
-                >
-                    S'inscrire
-                </li>
-            </ul>
-            {signUp ? <SignUp /> : null}
-            {signIn ? <SignIn /> :null}   
-        
+    <div className="card containerConnexion">
+      <ul className="formContainer">
+        <li
+          onClick={clickBtnConnexion}
+          id="login"
+          className={signIn ? 'activeBtn' : null}
+        >
+          Se connecter
+        </li>
+        <li
+          onClick={clickBtnConnexion}
+          id="register"
+          className={signUp ? 'activeBtn' : null}
+        >
+          S'inscrire
+        </li>
+      </ul>
+      {signUp ? <SignUp /> : null}
+      {signIn ? <SignIn /> : null}
     </div>
-
-  )
+  );
 }
