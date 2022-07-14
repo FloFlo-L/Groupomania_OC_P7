@@ -8,6 +8,14 @@ exports.getAllPost = (req, res, next) => {
     console.log('Liste post');
 };
 
+exports.getOnePost = (req, res)=>{
+    console.log(req.params)
+    PostModel.findOne({ _id: req.params.id })
+        .then(user => res.status(200).json(user))
+        .catch(error => res.status(404).json({ error }));
+        console.log('Utilisateur trouvé')
+}
+
 exports.createPost = (req, res, next) => {
     const post = new PostModel({
         ...req.body,

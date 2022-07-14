@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+* {
+  font-family: 'Baloo 2', cursive;
+}
+.test {
+  display: flex;
+  justify-content: center;
+}
+.CardContainer {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 1px solid #fd2d01;
+  background-color: #ffd7d7;
+  position: relative;
+  min-height: 120px;
+  width: 50%;
+  max-width: 60%;
+}
+
+.iconSpinner {
+  position: absolute;
+  top: 35%;
+  left: 49%;
+  color: #4e5166;
+}
+
+/******Utilisateur du post******/
+.cardHeader {
+  margin: 5px 20px;
+  color: #fd2d01;
+  font-weight: 500;
+  font-size: large;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+.namePost {
+  text-align: center;
+}
+
+/******titre + paragraphe post******/
+p {
+  background-color: #ffefef;
+  margin: 0px 20px;
+  padding: 5px 15px;
+  border-radius: 15px;
+  word-wrap: break-word;
+}
+
+/******Image Post******/
+.ContainerImg {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 350px;
+  max-height: 400px;
+  position: relative;
+}
+
+.imageCard {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+}
+/*****footer card*******/
+.containerFooterCard {
+  display: grid;
+  grid-template-columns: 56% 44%;
+  align-items: center;
+  margin: 0px 20px;
+  margin-bottom: 15px;
+}
+.containerLike {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.iconLike {
+  cursor: pointer;
+  background-color: #ffefef;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+/******Si utilisateur pas connecté*******/
+.pasConnecte {
+  color: #fd2d01;
+  background-color: #ffd7d7;
+  border-radius: 30px;
+  margin: 0% 20%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #fd2d01;
+}
+h2 {
+  text-align: center;
+}
+.Link {
+  color: #4e5166;
+}
+
+
+/****responsive design*****/
+@media only screen and (max-width: 850px) {
+  .CardContainer {
+    width: 85%;
+    max-width: 85%;
+  }
+  .cardHeader {
+    margin: 5px 15px;
+  }
+  p {
+    margin: 0px 15px;
+  }
+  .ContainerImg {
+    margin: 15px;
+  }
+  .pasConnecte {
+    margin: 0% 10%;
+  }
+  h2 {
+    font-size: xx-large;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .CardContainer {
+    width: 95%;
+    max-width: 95%;
+  }
+  .cardHeader {
+    margin: 5px 10px;
+  }
+  p {
+    margin: 0px 10px;
+  }
+  .ContainerImg {
+    margin: 10px;
+  }
+  .pasConnecte {
+    margin: 0% 5%;
+  }
+  h2 {
+    font-size: x-large;
+  }
+}
