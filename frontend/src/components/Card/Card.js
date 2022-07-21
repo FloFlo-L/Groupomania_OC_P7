@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { UserIdContext } from '../../context/AppContext';
 
@@ -32,6 +33,7 @@ export default function Card({ post }) {
   }, [isLoading, post]);
 
   function updatePost() {}
+  function deletePost() {}
 
   return (
     <div className="test">
@@ -45,6 +47,11 @@ export default function Card({ post }) {
           ></FontAwesomeIcon>
         ) : (
           <>
+            {userId === post.posterId && (
+              <a onClick={deletePost} class="btn-floating btn-medium BtnDelete">
+                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+              </a>
+            )}
             {isUpdated === false && (
               <>
                 <div className="cardHeader">{post.userId}</div>

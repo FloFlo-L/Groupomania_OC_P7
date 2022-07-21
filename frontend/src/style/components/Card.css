@@ -25,6 +25,22 @@
   color: #4e5166;
 }
 
+/******Bouton supprimer post******/
+.BtnDelete{
+  position: absolute;
+  background-color: #fd2d01;
+  color: #ffd7d7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 3%;
+  top: 1%;
+}
+.BtnDelete:hover{
+  background-color: #4e5166;
+  color: #fd2d01;
+}
+
 /******Utilisateur du post******/
 .cardHeader {
   margin: 5px 20px;
@@ -166,6 +182,9 @@ h2 {
   .CardContainer {
     width: 85%;
     max-width: 85%;
+  }
+  .BtnDelete{
+    right: 2%;
   }
   .cardHeader {
     margin: 5px 15px;
