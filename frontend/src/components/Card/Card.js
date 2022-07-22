@@ -32,7 +32,28 @@ export default function Card({ post }) {
     }
   }, [isLoading, post]);
 
-  function updatePost() {}
+  function updatePost() {
+    const modifyPost = {
+      method: 'PUT',
+      headers: { 
+        'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        namePost: titleUpdate,
+        message: textUpdate,
+        image: file
+      }),
+    };
+    fetch(`http://localhost:5000/api/post/${post._id}`, modifyPost);
+    window.location = '';
+  }
+
+  fetch(`http://localhost:5000/api/post/${post._id}`)
+    .then((res) => res.json())
+    .then((res2) => {
+      setMessage(res2.message);
+      setNamePost(res2.namePost);
+    });
+
   function deletePost() {}
 
   return (
