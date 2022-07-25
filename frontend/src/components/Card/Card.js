@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect, useContext } from 'react';
-import LikeBtn from './LikeBtn';
 import '../../style/components/Card.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +7,7 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+import LikeBtn from './LikeBtn';
 import { UserIdContext } from '../../context/AppContext';
 
 export default function Card({ post }) {
@@ -32,18 +31,17 @@ export default function Card({ post }) {
     }
   }, [isLoading, post]);
 
+  /*Fonction supprimer modifier un post*/
   function updatePost() {
-    const modifyPost = {
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('message', textUpdate);
+    formData.append('namePost', titleUpdate);
+    const requestModify = {
       method: 'PUT',
-      headers: { 
-        'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        namePost: titleUpdate,
-        message: textUpdate,
-        image: file
-      }),
+      body: formData,
     };
-    fetch(`http://localhost:5000/api/post/${post._id}`, modifyPost);
+    fetch(`http://localhost:5000/api/post/${post._id}`, requestModify);
     window.location = '';
   }
 
@@ -54,7 +52,22 @@ export default function Card({ post }) {
       setNamePost(res2.namePost);
     });
 
-  function deletePost() {}
+  function deletePost() {
+    const requestDelete = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    fetch(`http://localhost:5000/api/post/${post._id}`, requestDelete).then(
+      (res) => {
+        console.log(res);
+        if (res.status === 200) {
+          window.location = '/';
+        }
+      }
+    );
+  }
 
   return (
     <div className="test">
@@ -99,7 +112,6 @@ export default function Card({ post }) {
                 </div>
               </>
             )}
-
             <div className="ContainerImg">
               <img src={post.imageUrl} alt="pic" className="imageCard" />
               {isUpdated === true && (
@@ -131,7 +143,6 @@ export default function Card({ post }) {
                     </div>
                   </>
                 )}
-
                 {isUpdated === true && (
                   <div className="containerValidBtn">
                     <button onClick={updatePost} className="btn btnValid">
