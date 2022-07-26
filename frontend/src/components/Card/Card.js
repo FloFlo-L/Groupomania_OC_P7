@@ -19,7 +19,7 @@ export default function Card({ post }) {
 
   const [isUpdated, setIsUpdated] = useState(false);
   const [titleUpdate, setTitleUpdate] = useState(post.namePost);
-  const [textUpdate, setTextUpdate] = useState(post.namePost);
+  const [textUpdate, setTextUpdate] = useState(post.message);
 
   const [file, setFile] = useState();
   console.log('file', file);
@@ -82,7 +82,7 @@ export default function Card({ post }) {
         ) : (
           <>
             {userId === post.posterId && (
-              <a onClick={deletePost} class="btn-floating btn-medium BtnDelete">
+              <a href='/' onClick={deletePost} class="btn-floating btn-medium BtnDelete">
                 <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
               </a>
             )}
@@ -116,7 +116,7 @@ export default function Card({ post }) {
               <img src={post.imageUrl} alt="pic" className="imageCard" />
               {isUpdated === true && (
                 <div class="file-field input-field">
-                  <a class="btn-floating btn-medium BtnImage">
+                  <a href='/' class="btn-floating btn-medium BtnImage">
                     <FontAwesomeIcon icon={faImage} size="2x"></FontAwesomeIcon>
                     <input
                       type="file"
@@ -136,7 +136,7 @@ export default function Card({ post }) {
                   <>
                     <div className="containerBtn">
                       <div onClick={() => setIsUpdated(!isUpdated)}>
-                        <a class="btn-floating btn-medium BtnModif">
+                        <a href='/' class="btn-floating btn-medium BtnModif">
                           <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
                         </a>
                       </div>
