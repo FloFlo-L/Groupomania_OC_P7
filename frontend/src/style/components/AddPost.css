@@ -1,0 +1,34 @@
+.AddPostContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.ContainerPostForm {
+  background-color: #ffd7d7;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  border-radius: 20px;
+  border: 1px solid #fd2d01;
+  margin-bottom: 10px;
+}
+.postForm {
+  margin: 15px;
+}
+.input-field label {
+  color: black;
+}
+.input-field textarea:focus + label {
+  color: #fd2d01 !important;
+}
+.ContainerFooterPost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 10px;
+}
+h6 {
+  margin-right: 10px;
+}
