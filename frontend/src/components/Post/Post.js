@@ -6,7 +6,6 @@ import Card from '../Card/Card';
 export default function Post() {
   const [post, setPost] = useState([]);
   const userId = useContext(UserIdContext);
-  console.log('Liste post',post);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/post`)

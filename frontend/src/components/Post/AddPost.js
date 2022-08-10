@@ -60,68 +60,78 @@ export default function AddPost() {
   };
 
   return (
-    <div className="AddPostContainer">
-      <div className="ContainerPostForm">
-        {titre && message && picturePost ? null : (
-          <>
-            <div className="postForm">
-              <h5>Publier un nouveau post</h5>
-              <div className="input-field">
-                <textarea
-                  className="materialize-textarea"
-                  name="Titre"
-                  onChange={(e) => setTitre(e.target.value)}
-                />
-                <label>Titre</label>
-              </div>
-
-              <div className="input-field">
-                <textarea
-                  className="materialize-textarea"
-                  name="Message"
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-                <label>Message</label>
-              </div>
-            </div>
-            {titre && message ? (
-              <div className="ContainerFooterPost">
-                <h6>Ajouter une image :</h6>
-                <div class="file-field input-field">
-                  <a className="btn-floating btn-medium BtnPicture" href="/">
-                    <FontAwesomeIcon icon={faImage} size="2x"></FontAwesomeIcon>
-                    <input
-                      type="file"
-                      name="file"
-                      accept=".jpg, .jpeg, .png"
-                      onChange={(e) => picture(e)}
+    <>
+      {userId === '62e92401a72ea436434e79a0' ? null : (
+        <div className="AddPostContainer">
+          <div className="ContainerPostForm">
+            {titre && message && picturePost ? null : (
+              <>
+                <div className="postForm">
+                  <h5>Publier un nouveau post</h5>
+                  <div className="input-field">
+                    <textarea
+                      className="materialize-textarea"
+                      name="Titre"
+                      onChange={(e) => setTitre(e.target.value)}
                     />
-                  </a>
-                </div>
-              </div>
-            ) : null}
-          </>
-        )}
+                    <label>Titre</label>
+                  </div>
 
-        {titre && message && picturePost ? (
-          <>
-            <h5>Prévisualisation de votre Post</h5>
-            <div className="namePost">{titre}</div>
-            <p>{message}</p>
-            <div className="ContainerImg">
-              <img src={picturePost} alt="pic" className="imageCard" />
-            </div>
-            <div className="containerBtn">
-              <button className="btn btnPost" onClick={post}>
-                Publier
-              </button>
-              <button className="btn btnPost" onClick={cancelPost}>
-                Annuler
-              </button>
-            </div>
-          </>
-        ) : null}
-      </div>
-    </div>
+                  <div className="input-field">
+                    <textarea
+                      className="materialize-textarea"
+                      name="Message"
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
+                    <label>Message</label>
+                  </div>
+                </div>
+                {titre && message ? (
+                  <div className="ContainerFooterPost">
+                    <h6>Ajouter une image :</h6>
+                    <div class="file-field input-field">
+                      <a
+                        className="btn-floating btn-medium BtnPicture"
+                        href="/"
+                      >
+                        <FontAwesomeIcon
+                          icon={faImage}
+                          size="2x"
+                        ></FontAwesomeIcon>
+                        <input
+                          type="file"
+                          name="file"
+                          accept=".jpg, .jpeg, .png"
+                          onChange={(e) => picture(e)}
+                        />
+                      </a>
+                    </div>
+                  </div>
+                ) : null}
+              </>
+            )}
+
+            {titre && message && picturePost ? (
+              <>
+                <h5>Prévisualisation de votre Post</h5>
+                <div className="namePost">{titre}</div>
+                <p>{message}</p>
+                <div className="ContainerImg">
+                  <img src={picturePost} alt="pic" className="imageCard" />
+                </div>
+                <div className="containerBtn">
+                  <button className="btn btnPost" onClick={post}>
+                    Publier
+                  </button>
+                  <button className="btn btnPost" onClick={cancelPost}>
+                    Annuler
+                  </button>
+                </div>
+              </>
+            ) : null}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

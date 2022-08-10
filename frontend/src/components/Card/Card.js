@@ -14,7 +14,6 @@ import { UserIdContext } from '../../context/AppContext';
 export default function Card({ post }) {
   const userId = useContext(UserIdContext);
   console.log('letestTODAY',userId)
-  console.log(post)
 
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState(post.message);
@@ -82,7 +81,7 @@ export default function Card({ post }) {
           ></FontAwesomeIcon>
         ) : (
           <>
-            {userId === post.posterId && (
+            {(userId === post.posterId || userId === '62e92401a72ea436434e79a0') &&(
               <a onClick={deletePost} class="btn-floating btn-medium BtnDelete">
                 <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
               </a>
@@ -133,7 +132,7 @@ export default function Card({ post }) {
                 <LikeBtn post={post} />
               </div>
               <div className="containerValid">
-                {userId === post.posterId && (
+                {(userId === post.posterId || userId === '62e92401a72ea436434e79a0') && (
                   <>
                     <div className="containerBtn">
                       <div onClick={() => setIsUpdated(!isUpdated)}>

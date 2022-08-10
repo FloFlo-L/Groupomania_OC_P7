@@ -8,10 +8,6 @@ export default function LikeBtn({ post }) {
   const userId = useContext(UserIdContext);
   const [like, setLike] = useState(false);
   const [nbr, setNbr] = useState(post.usersLiked.length);
-  const [PopupListLike, setPopupListLike] = useState(false);
-  const [likers, setLikers] = useState([]);
-
-  console.log('likers', likers);
 
   useEffect(() => {
     if (post.usersLiked.includes(userId)) {
@@ -20,8 +16,6 @@ export default function LikeBtn({ post }) {
   }, [userId, post.usersLiked]);
 
   function liked() {
-    console.log('like');
-
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -48,8 +42,6 @@ export default function LikeBtn({ post }) {
   }
 
   function unliked() {
-    console.log('unlike');
-
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -75,15 +67,6 @@ export default function LikeBtn({ post }) {
       });
   }
 
-  function ListLike() {
-    setPopupListLike(!PopupListLike);
-    fetch(`http://localhost:5000/api/post/${post._id}`)
-      .then((res) => res.json())
-      .then((res2) => {
-        setLikers(res2.usersLiked);
-      });
-  }
-
   return (
     <>
       {like === false ? (
@@ -104,9 +87,7 @@ export default function LikeBtn({ post }) {
         ></FontAwesomeIcon>
       )}
 
-      <h8 className="h8ListLike" onClick={ListLike}>
-        {nbr}
-      </h8>
+      <h8>{nbr}</h8>
     </>
   );
 }
