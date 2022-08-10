@@ -14,14 +14,14 @@
   margin-bottom: 10px;
 }
 .postForm {
-  margin: 15px;
-}
-.input-field label {
-  color: black;
-}
-.input-field textarea:focus + label {
-  color: #fd2d01 !important;
-}
+    margin: 15px;
+  }
+  .input-field label {
+    color: black;
+  }
+  .input-field textarea:focus + label {
+    color: #fd2d01 !important;
+  }
 .ContainerFooterPost {
   display: flex;
   justify-content: center;
@@ -29,6 +29,50 @@
   height: 50px;
   margin-bottom: 10px;
 }
-h6 {
-  margin-right: 10px;
+h6{
+    margin-right: 10px;
+}
+.BtnPicture {
+  background-color: #fd2d01;
+  color: #ffd7d7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.BtnPicture:hover{
+    background-color: #4e5166;
+    color: #fd2d01;
+}
+.btnPost {
+  background-color: #fd2d01;
+  color: #ffd7d7;
+  border-radius: 20px;
+}
+.btnPost:hover {
+  background-color: #4e5166;
+  color: #fd2d01;
+}
+h5{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 7px;
+}
+.containerBtn{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 850px) {
+    .ContainerPostForm {
+      width: 75%;
+      max-width: 75%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .ContainerPostForm {
+      width: 85%;
+      max-width: 85%;
+    }
 }

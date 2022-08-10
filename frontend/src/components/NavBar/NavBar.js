@@ -12,7 +12,6 @@ export default function NavBar() {
   const userId = useContext(UserIdContext);
   const [prenom, setPrenom] = useState('');
   const [nom, setNom] = useState('');
-  console.log(userId);
 
   fetch(`http://localhost:5000/api/user/${userId}`)
     .then((response) => response.json())

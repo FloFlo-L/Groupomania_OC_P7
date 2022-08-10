@@ -2,7 +2,7 @@ const PostModel = require('../models/post.model');
 const fs = require('fs');
 
 exports.getAllPost = (req, res, next) => {
-    PostModel.find()//renvoyer un tableau contenant toutes les posts dans notre base de données.
+    PostModel.find().sort({ _id: -1 })//renvoyer un tableau contenant toutes les posts dans notre base de données.
     .then(posts => res.status(200).json(posts))
     .catch(error => res.status(400).json({ error }));
     console.log('Liste post');

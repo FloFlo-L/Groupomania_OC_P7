@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect, useContext } from 'react';
 import '../../style/components/Card.css';
 
@@ -12,6 +13,8 @@ import { UserIdContext } from '../../context/AppContext';
 
 export default function Card({ post }) {
   const userId = useContext(UserIdContext);
+  console.log('letestTODAY',userId)
+  console.log(post)
 
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState(post.message);
@@ -22,7 +25,6 @@ export default function Card({ post }) {
   const [textUpdate, setTextUpdate] = useState(post.message);
 
   const [file, setFile] = useState();
-  console.log('file', file);
 
   /*Loading spinner*/
   useEffect(() => {
@@ -61,7 +63,6 @@ export default function Card({ post }) {
     };
     fetch(`http://localhost:5000/api/post/${post._id}`, requestDelete).then(
       (res) => {
-        console.log(res);
         if (res.status === 200) {
           window.location = '/';
         }
@@ -82,7 +83,7 @@ export default function Card({ post }) {
         ) : (
           <>
             {userId === post.posterId && (
-              <a href='/' onClick={deletePost} class="btn-floating btn-medium BtnDelete">
+              <a onClick={deletePost} class="btn-floating btn-medium BtnDelete">
                 <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
               </a>
             )}
@@ -116,7 +117,7 @@ export default function Card({ post }) {
               <img src={post.imageUrl} alt="pic" className="imageCard" />
               {isUpdated === true && (
                 <div class="file-field input-field">
-                  <a href='/' class="btn-floating btn-medium BtnImage">
+                  <a class="btn-floating btn-medium BtnImage">
                     <FontAwesomeIcon icon={faImage} size="2x"></FontAwesomeIcon>
                     <input
                       type="file"
@@ -136,7 +137,7 @@ export default function Card({ post }) {
                   <>
                     <div className="containerBtn">
                       <div onClick={() => setIsUpdated(!isUpdated)}>
-                        <a href='/' class="btn-floating btn-medium BtnModif">
+                        <a class="btn-floating btn-medium BtnModif">
                           <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
                         </a>
                       </div>
