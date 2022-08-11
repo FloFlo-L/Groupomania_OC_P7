@@ -8,6 +8,9 @@ require('./config/db');
 
 const app = express();
 
+const reactBuild = path.join(__dirname, 'frontend', 'build')
+app.use(express.static(reactBuild))
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');//Autorise l'accès à l'API pour n'importe quelle origine
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');//Définit les Headers utilisé par l'API
