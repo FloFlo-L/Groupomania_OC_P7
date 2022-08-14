@@ -65,7 +65,7 @@ export default function SignUp() {
       .then((response) => response.json())
       .then((response2) => {
         console.log(response2.message);
-        if (response2.message === 'Vous êtes inscrit !') {
+        if (response2.message === '') {
           setFormSubmit(true);
           console.log('inscrit !');
         } else {
