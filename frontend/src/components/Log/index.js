@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SignUp from './signUp';
-import SignIn from './SignIn';
+import SignIn from './signIn';
 
 export default function Log() {
   const [signUp, setSignUp] = useState(false);

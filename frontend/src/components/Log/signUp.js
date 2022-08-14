@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SignIn from './SignIn';
+import SignIn from './signIn';
 
 export default function SignUp() {
   const [nom, setNom] = useState('');
