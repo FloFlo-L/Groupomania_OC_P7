@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SignUp from './SignUp';
+import SignUp from './signUp';
 import SignIn from './SignIn';
 
 export default function Log() {
