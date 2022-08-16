@@ -18,7 +18,7 @@ export default function SignIn() {
       }),
     };
 
-    fetch('http://localhost:5000/api/user/login', requestOptions)
+    fetch('https://groupomania-fl.herokuapp.com/api/user/login', requestOptions)
       .then((response) => response.json())
       .then((response2) => {
         console.log(response2);
