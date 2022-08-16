@@ -61,7 +61,7 @@ export default function SignUp() {
       }),
     };
 
-    fetch('http://localhost:5000/api/user/register', requestOptions)
+    fetch('https://groupomania-fl.herokuapp.com/api/user/register', requestOptions)
       .then((response) => response.json())
       .then((response2) => {
         console.log(response2.message);
