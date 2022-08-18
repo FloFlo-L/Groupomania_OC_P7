@@ -39,9 +39,8 @@ export default function AddPost() {
       method: 'POST',
       body: formData,
     };
-    fetch(`http://localhost:5000/api/post/`, requestNewPost).then((res) =>
-      console.log(res)
-    );
+    fetch(`http://localhost:5000/api/post`, requestNewPost)
+    .then((res) => console.log(res));
     window.location = '/';
   }
 

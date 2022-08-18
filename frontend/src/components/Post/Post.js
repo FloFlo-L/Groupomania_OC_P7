@@ -8,7 +8,7 @@ export default function Post() {
   const userId = useContext(UserIdContext);
 
   useEffect(() => {
-    fetch(`https://groupomania-fl.herokuapp.com/api/post`)
+    fetch(`http://localhost:5000/api/post`)
       .then((res) => res.json())
       .then((res2) => {
         setPost(res2);
