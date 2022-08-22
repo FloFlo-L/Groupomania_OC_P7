@@ -1,12 +1,15 @@
 const express = require('express');
 const userRoutes = require('./routes/user.routes');
 const postRoutes = require('./routes/post.routes');
+const helmet = require('helmet')
 const path = require('path');
 
 require('dotenv').config({path: './config/.env'});
 require('./config/db');
 
 const app = express();
+
+app.use(helmet.crossOriginResourcePolicy({policy : "same-site"}));
 
 const reactBuild = path.join(__dirname, 'frontend', 'build')
 app.use(express.static(reactBuild))
