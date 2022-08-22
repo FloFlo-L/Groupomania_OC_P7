@@ -21,11 +21,9 @@ export default function SignIn() {
     fetch('http://localhost:5000/api/user/login', requestOptions)
       .then((response) => response.json())
       .then((response2) => {
-        console.log(response2);
         if (response2.error === undefined) {
           console.log('mdp et email ok !');
           error.innerHTML = '';
-          console.log(response2)
           window.localStorage.setItem('token', response2.token)
           window.location='/'
         } else {

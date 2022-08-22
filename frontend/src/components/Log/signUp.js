@@ -71,7 +71,8 @@ export default function SignUp() {
         } else {
           error.innerHTML = response2.message;
         }
-      });
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
