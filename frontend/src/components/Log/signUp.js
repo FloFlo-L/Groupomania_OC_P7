@@ -96,6 +96,7 @@ export default function SignUp() {
                   name="nom"
                   onChange={(e) => setNom(e.target.value)}
                   value={nom}
+                  aria-label='Renseignez votre nom'
                 />
                 <label htmlFor="nom">Nom</label>
                 <div className="error-nom"></div>
@@ -107,6 +108,7 @@ export default function SignUp() {
                   name="prenom"
                   onChange={(e) => setPrenom(e.target.value)}
                   value={prenom}
+                  aria-label='Renseignez votre prénom'
                 />
                 <label htmlFor="prenom">Prénom</label>
                 <div className="error-prenom"></div>
@@ -120,6 +122,7 @@ export default function SignUp() {
                 name="email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
+                aria-label='Renseignez votre email'
               />
               <label htmlFor="email">Email</label>
               <div className="error-email"></div>
@@ -134,6 +137,7 @@ export default function SignUp() {
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
+                aria-label='Renseignez votre mot de passe'
               />
               <label htmlFor="password">Mot de passe</label>
               <div className="error-password"></div>

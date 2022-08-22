@@ -47,6 +47,7 @@ export default function SignIn() {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            aria-label= "renseignez votre email"
           />
           <label htmlFor="email">Email</label>
         </div>
@@ -60,6 +61,7 @@ export default function SignIn() {
             name="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
+            aria-label= "renseignez votre mot de passe"
           />
           <label htmlFor="password">Mot de passe</label>
         </div>
@@ -67,7 +69,7 @@ export default function SignIn() {
         <br />
         <br />
 
-        <input type="submit" value="Se connecter" className="btn btnConnexion" />
+        <input type="submit" value="Se connecter" className="btn btnConnexion" aria-label='Se connecter'/>
         <br />
         <br />
         <div className="error"></div>
